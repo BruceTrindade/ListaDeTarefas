@@ -47,7 +47,7 @@ public class TelaAddTarefaActivity extends AppCompatActivity {
         ButaoInput = findViewById(R.id.ButaoCadastar);
         ButaoInput.setOnClickListener(new View.OnClickListener() { //ação do botão Salvar Tarefa
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //Enviado dados pro banco
                 DataBase myDB = new DataBase(TelaAddTarefaActivity.this);
                 myDB.AdicionarTarefa(TarefaInput.getText().toString().trim(),
                         DescricaoInput.getText().toString().trim(),

@@ -15,9 +15,7 @@
 
 
         </activity>
-        <activity android:name=".MainActivity"
-            android:label="Gerenciador de Tarefas"
-            android:launchMode="singleTop">
+        <activity android:name=".MainActivity"    >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

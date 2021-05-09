@@ -8,7 +8,7 @@
     android:padding="30dp"    >
 
     <EditText
-        android:id="@+id/text_Task"
+        android:id="@+id/TextTarefa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="130dp"
@@ -22,7 +22,7 @@
 
 
     <EditText
-        android:id="@+id/text_Description"
+        android:id="@+id/TextDescricao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -32,10 +32,10 @@
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_Task" />
+        app:layout_constraintTop_toBottomOf="@+id/TextTarefa" />
 
     <EditText
-        android:id="@+id/text_Date"
+        android:id="@+id/TextData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
@@ -44,10 +44,10 @@
         android:hint="Selecione a data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_Description" />
+        app:layout_constraintTop_toBottomOf="@+id/TextDescricao" />
 
     <TextView
-        android:id="@+id/text_Hour"
+        android:id="@+id/TextHora"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="19dp"
@@ -56,10 +56,10 @@
         android:hint="Selecione a hora"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_Date"/>
+        app:layout_constraintTop_toBottomOf="@+id/TextData"/>
 
     <Button
-        android:id="@+id/butao_Cadastar"
+        android:id="@+id/ButaoCadastar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginTop="40dp"
@@ -68,6 +68,6 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_Hour" />
+        app:layout_constraintTop_toBottomOf="@+id/TextHora" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

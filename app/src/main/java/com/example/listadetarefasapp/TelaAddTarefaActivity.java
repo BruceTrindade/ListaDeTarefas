@@ -4,14 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,32 +22,57 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class TelaAddTarefaActivity extends AppCompatActivity {
-
-
+    Context context;
     EditText Data;
-
     TextView Hora;
-
     int  hora, minuto;
     DatePickerDialog.OnDateSetListener setListener;
 
-
+    EditText TarefaInput, DescricaoInput, DataInput;
+    TextView HoraInput;
+    Button ButaoInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_add_tarefa);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);// Ativa a seta de voltar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//Mostra a seta
+        getSupportActionBar().setTitle("Gerenciador de Tarefas");//Titulo na bar
+
+        TarefaInput = findViewById(R.id.TextTarefa);
+        DescricaoInput = findViewById(R.id.TextDescricao);
+        HoraInput = findViewById(R.id.TextHora);
+        DataInput = findViewById(R.id.TextData);
+        ButaoInput = findViewById(R.id.ButaoCadastar);
+        ButaoInput.setOnClickListener(new View.OnClickListener() { //ação do botão Salvar Tarefa
+            @Override
+            public void onClick(View v) {
+                DataBase myDB = new DataBase(TelaAddTarefaActivity.this);
+                myDB.AdicionarTarefa(TarefaInput.getText().toString().trim(),
+                        DescricaoInput.getText().toString().trim(),
+                        DataInput.getText().toString().trim(),
+                        HoraInput.getText().toString().trim());
+            }
+
+        });
+
+
+
+
+
+
+
+
+
         //Aqui começa o DatePicker
 
-        Data = findViewById(R.id.text_Date);
+        Data = findViewById(R.id.TextData);
 
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
-
 
         // DatePicker da data de cadastro
         Data.setOnClickListener(new View.OnClickListener() {
@@ -61,14 +89,12 @@ public class TelaAddTarefaActivity extends AppCompatActivity {
                 }, year, month, day);
                 datePickerDialog.show();
 
-
             }
         });
 
-
         // Hora
 
-        Hora = findViewById(R.id.text_Hour);
+        Hora = findViewById(R.id.TextHora);
 
         Hora.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,17 +140,6 @@ public class TelaAddTarefaActivity extends AppCompatActivity {
                 timePickerDialog.show();
             }
         });
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }
